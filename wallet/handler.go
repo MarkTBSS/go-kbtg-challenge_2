@@ -6,12 +6,12 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-type Handler struct {
-	store Storer
-}
-
 type Storer interface {
 	Wallets() ([]Wallet, error)
+}
+
+type Handler struct {
+	store Storer
 }
 
 func New(database Storer) *Handler {
